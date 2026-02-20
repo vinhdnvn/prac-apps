@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fe
+  name: be
   labels:
-    app: fe
+    app: be
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fe
+      app: be
   template:
     metadata:
       labels:
-        app: fe
+        app: be
     spec:
       containers:
-        - name: fe
-          image: ghcr.io/vinhdnvn/fe:latest
+        - name: be
+          image: ghcr.io/vinhdnvn/be:latest
           imagePullPolicy: Never
           ports:
-            - containerPort: 80
+            - containerPort: 3000
           resources:
             requests:
               cpu: "50m"
