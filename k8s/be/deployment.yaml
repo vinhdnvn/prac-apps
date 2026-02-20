@@ -20,6 +20,12 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
+          env:
+            - name: POSTGRES_HOST
+              value: "db"
+          envFrom:
+            - secretRef:
+                name: db-secret
           resources:
             requests:
               cpu: "50m"

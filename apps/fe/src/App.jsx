@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [hello, setHello] = useState(null)
+  const [dbCheck, setDbCheck] = useState(null)
+
+  useEffect(() => {
+    fetch('/api/hello')
+      .then(r => r.json())
+      .then(setHello)
+      .catch(() => setHello({ error: 'failed' }))
+
+    fetch('/api/db-check')
+      .then(r => r.json())
+      .then(setDbCheck)
+      .catch(() => setDbCheck({ error: 'failed' }))
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div style={{ padding: '2rem', fontFamily: 'monospace' }}>
+      <h1>My K8s App</h1>
+
+      <h2>BE API</h2>
+      <pre>{JSON.stringify(hello, null, 2)}</pre>
+
+      <h2>DB Check</h2>
+      <pre>{JSON.stringify(dbCheck, null, 2)}</pre>
+    </div>
   )
 }
 
