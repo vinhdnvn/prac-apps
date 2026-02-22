@@ -11,6 +11,8 @@
   --accent-dim: #1e3a6e;
   --done: #1a4731;
   --done-text: #34d399;
+  --wip: #2d2208;
+  --wip-text: #fbbf24;
 }
 
 body {
@@ -208,3 +210,184 @@ body {
 }
 
 .todo-delete-btn:hover { color: #ef4444; }
+
+/* ── DSA ── */
+.dsa-empty {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.dsa-list { list-style: none; }
+
+.dsa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.dsa-topic-title {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.dsa-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── PracticeCard (reusable) ── */
+.dsa-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.practice-card-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.practice-card-item:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-dim);
+}
+
+.pcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.pcard-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #e8edf7;
+}
+
+.pcard-difficulty {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pcard-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.pcard-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pcard-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.pcard-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pcard-toggle {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.practice-card-item.expanded {
+  border-color: var(--accent-dim);
+}
+
+.pcard-content {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.pcard-explanation {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pcard-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.pcard-step {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.pcard-step-num {
+  color: var(--accent);
+  font-weight: 600;
+  min-width: 16px;
+}
+
+.pcard-code-block {
+  background: #050a12;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pcard-code-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pcard-code-lang {
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.pcard-code-complexity {
+  font-size: 11px;
+  color: var(--done-text);
+}
+
+.pcard-code {
+  margin: 0;
+  padding: 14px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #c9d4e8;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* ── Card status variants ── */
+.card-status.wip {
+  background: var(--wip);
+  color: var(--wip-text);
+}

@@ -11,6 +11,13 @@ const practices = [
     path: '/todo',
     status: 'done',
   },
+  {
+    id: 'dsa',
+    title: 'DSA',
+    description: 'Array · LinkedList · Tree · Graph · DP',
+    path: '/dsa',
+    status: 'wip',
+  },
 ]
 
 export default function Home() {
