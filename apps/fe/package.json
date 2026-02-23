@@ -14,7 +14,8 @@
     "react-dom": "^19.2.0",
     "react-router-dom": "^6.28.0",
     "three": "^0.169.0",
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

@@ -18,6 +18,13 @@ const practices = [
     path: '/dsa',
     status: 'wip',
   },
+  {
+    id: 'nestjs',
+    title: 'NestJS',
+    description: 'Lifecycle · Guards · Pipes · Interceptors · Decorators',
+    path: '/nestjs',
+    status: 'wip',
+  },
 ]
 
 export default function Home() {
