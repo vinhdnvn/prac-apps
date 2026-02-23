@@ -74,6 +74,46 @@ const problems = [
     return x`,
     },
   },
+  {
+    id: 3,
+    title: 'Sqrt(x)',
+    difficulty: 'easy',
+    tags: ['Math', 'Binary Search'],
+    description: 'Given a non-negative integer x, return the square root of x rounded down to the nearest integer.',
+    explanation: [
+      { type: 'text', value: 'Tìm căn bậc 2 nguyên của x — tức là số lớn nhất r sao cho r * r <= x.' },
+      { type: 'text', value: 'Approach 1 — Newton\'s method: O(log x). Dùng công thức xấp xỉ r = (r + x/r) // 2, hội tụ rất nhanh.' },
+      { type: 'step', num: '→', value: 'Bắt đầu r = x, lặp cho đến khi r * r <= x.' },
+      { type: 'text', value: 'Approach 2 — Binary Search: O(log x). Tìm kiếm nhị phân trong khoảng [0, x], lưu lại mid mỗi khi mid * mid <= x.' },
+      { type: 'step', num: '1', value: 'left = 0, right = x, ans = 0' },
+      { type: 'step', num: '2', value: 'mid = (left + right) // 2' },
+      { type: 'step', num: '3', value: 'Nếu mid * mid <= x → ans = mid, tìm tiếp bên phải (left = mid + 1)' },
+      { type: 'step', num: '4', value: 'Nếu mid * mid > x → thu hẹp bên trái (right = mid - 1)' },
+      { type: 'step', num: '5', value: 'Kết thúc khi left > right → return ans' },
+    ],
+    code: {
+      lang: 'python',
+      complexity: 'O(log x) · Binary Search',
+      value: `def mySqrt(x):
+    ## Approach 1 -> Newton's method -> fastest
+    # r = x
+    # while r * r > x:
+    #     r = (r + x // r) // 2
+    # return int(r)
+
+    ## Approach 2 -> Binary Search -> O(log x)
+    left, right = 0, x
+    ans = 0
+    while left <= right:
+        mid = (left + right) // 2
+        if mid * mid <= x:
+            ans = mid
+            left = mid + 1   # còn có thể lớn hơn
+        else:
+            right = mid - 1  # quá lớn, thu hẹp lại
+    return ans`,
+    },
+  },
 ]
 
 export default function DSA() {
