@@ -116,7 +116,7 @@ export default function Home() {
       <div className="home-content">
         <header ref={headerRef} className="home-header">
           <p className="home-label">practice lab</p>
-          <h1 className="home-title">FE Playground</h1>
+          <h1 className="home-title"> Playground</h1>
           <p className="home-subtitle">React · Hooks · Patterns · Interview Prep</p>
         </header>
 
