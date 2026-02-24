@@ -25,6 +25,13 @@ const practices = [
     path: '/nestjs',
     status: 'wip',
   },
+  {
+    id: 'nodejs',
+    title: 'Node.js / JavaScript',
+    description: 'Event Loop · Call Stack · Microtasks · Async',
+    path: '/nodejs',
+    status: 'wip',
+  },
 ]
 
 export default function Home() {

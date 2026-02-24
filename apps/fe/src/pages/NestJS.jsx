@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
-
+import remarkGfm from 'remark-gfm'
 const lifecycleContent = `
 ## Request Lifecycle
 
@@ -338,7 +338,7 @@ export default function NestJS() {
 
             {active === t.id && (
               <div className="nestjs-card-body">
-                <ReactMarkdown
+                <ReactMarkdown remarkPlugins={[remarkGfm]}
                   components={{
                     h2: ({ children }) => <h2 className="md-h2">{children}</h2>,
                     h3: ({ children }) => <h3 className="md-h3">{children}</h3>,

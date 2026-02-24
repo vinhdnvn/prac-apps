@@ -543,6 +543,13 @@ body {
 
 .md-link:hover { text-decoration: underline; }
 
+.md-li {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 2px 0;
+}
+
 /* ── Card status variants ── */
 .card-status.wip {
   background: var(--wip);
