@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+
+  # ── Users microservice (TCP :3001) ──────────────────────
+  users:
+    build:
+      context: .
+      dockerfile: Dockerfile.users
+    environment:
+      PORT: 3001
+    expose:
+      - "3001"
+    restart: unless-stopped
+
+  # ── Products microservice (TCP :3002) ───────────────────
+  products:
+    build:
+      context: .
+      dockerfile: Dockerfile.products
+    environment:
+      PORT: 3002
+    expose:
+      - "3002"
+    restart: unless-stopped
+
+  # ── API Gateway (HTTP :3000) ────────────────────────────
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      USERS_HOST: users
+      USERS_PORT: 3001
+      PRODUCTS_HOST: products
+      PRODUCTS_PORT: 3002
+    depends_on:
+      - users
+      - products
+    restart: unless-stopped

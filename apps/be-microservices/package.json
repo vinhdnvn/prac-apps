@@ -1,0 +1,32 @@
+{
+  "name": "be-nest",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:gateway":  "nest build api-gateway",
+    "build:users":    "nest build users",
+    "build:products": "nest build products",
+    "start:gateway":  "nest start api-gateway --watch",
+    "start:users":    "nest start users --watch",
+    "start:products": "nest start products --watch",
+    "dev": "concurrently \"nest start api-gateway --watch\" \"nest start users --watch\" \"nest start products --watch\""
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.0",
+    "@nestjs/core": "^10.4.0",
+    "@nestjs/microservices": "^10.4.0",
+    "@nestjs/platform-express": "^10.4.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.0",
+    "@nestjs/schematics": "^10.2.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "concurrently": "^9.0.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}

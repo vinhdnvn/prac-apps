@@ -141,7 +141,7 @@ setTimeout(() => console.log('B'))   // đăng ký trước
 - \`setTimeout(0)\` chạy trước \`setImmediate\` ở ngoài cùng — **sai, không đảm bảo**
 - Sau Promise là chạy ngay setTimeout — **sai, còn phụ thuộc I/O**
 - Nhiều I/O cạnh tranh thì thứ tự ổn định — **sai**
-
+  
 ---
 
 ## VIII. Lưu ý 
