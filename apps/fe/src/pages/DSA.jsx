@@ -75,6 +75,38 @@ const problems = [
     },
   },
   {
+    id: 4,
+    title: 'Search Insert Position',
+    difficulty: 'easy',
+    tags: ['Array', 'Binary Search'],
+    description: 'Given a sorted array and a target, return the index if found. If not, return the index where it would be inserted.',
+    explanation: [
+      { type: 'text', value: 'Về cơ bản là Binary Search — nhưng thay vì return -1 khi không tìm thấy, ta return left.' },
+      { type: 'text', value: 'Tại sao return left lại đúng?' },
+      { type: 'step', num: '→', value: 'Khi vòng lặp kết thúc (left > right), left đang trỏ vào vị trí đầu tiên mà nums[left] > target.' },
+      { type: 'step', num: '→', value: 'Tức là mọi phần tử bên trái left đều < target, mọi phần tử từ left trở đi đều >= target.' },
+      { type: 'step', num: '→', value: 'Đây chính xác là vị trí cần insert để mảng vẫn giữ nguyên thứ tự sort.' },
+      { type: 'text', value: 'Ví dụ: nums = [1, 3, 5, 6], target = 2 → left dừng ở index 1 (chỗ của số 3), vì 2 phải nằm trước 3.' },
+    ],
+    code: {
+      lang: 'python',
+      complexity: 'O(log n)',
+      value: `def searchInsert(nums, target):
+    left, right = 0, len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return left  # vị trí insert nếu không tìm thấy`,
+    },
+  },
+  {
     id: 3,
     title: 'Sqrt(x)',
     difficulty: 'easy',
