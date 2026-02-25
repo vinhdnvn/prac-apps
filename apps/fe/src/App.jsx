@@ -4,6 +4,7 @@ import TodoApp from './pages/TodoApp'
 import DSA from './pages/DSA'
 import NestJS from './pages/NestJS'
 import NodeJS from './pages/NodeJS'
+import StreamBuffer from './pages/StreamBuffer'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/dsa" element={<DSA />} />
         <Route path="/nestjs" element={<NestJS />} />
         <Route path="/nodejs" element={<NodeJS />} />
+        <Route path="/nodejs/stream-buffer" element={<StreamBuffer />} />
       </Routes>
     </BrowserRouter>
   )

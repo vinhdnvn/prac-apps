@@ -156,6 +156,12 @@ const topics = [
     badge: 'core concept',
     content: callStackContent,
   },
+  {
+    id: 'stream-buffer',
+    title: 'Stream & Buffer',
+    badge: 'i/o internals',
+    link: '/nodejs/stream-buffer',
+  },
 ]
 
 export default function NodeJS() {
@@ -174,16 +180,18 @@ export default function NodeJS() {
           <div key={t.id} className="nestjs-card">
             <button
               className="nestjs-card-header"
-              onClick={() => setActive(active === t.id ? null : t.id)}
+              onClick={() => t.link ? navigate(t.link) : setActive(active === t.id ? null : t.id)}
             >
               <div className="nestjs-card-left">
                 <span className="nestjs-card-title">{t.title}</span>
                 <span className="nestjs-badge">{t.badge}</span>
               </div>
-              <span className="pcard-toggle">{active === t.id ? '▲' : '▼'}</span>
+              <span className="pcard-toggle">
+                {t.link ? '→' : (active === t.id ? '▲' : '▼')}
+              </span>
             </button>
 
-            {active === t.id && (
+            {!t.link && active === t.id && (
               <div className="nestjs-card-body">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}
                   components={{
