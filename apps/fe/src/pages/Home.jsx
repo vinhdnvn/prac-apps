@@ -32,6 +32,13 @@ const practices = [
     path: '/nodejs',
     status: 'wip',
   },
+  {
+    id: 'jwt',
+    title: 'JWT',
+    description: 'Token Structure · Stateless · Lifecycle · Signature',
+    path: '/jwt',
+    status: 'wip',
+  },
 ]
 
 export default function Home() {

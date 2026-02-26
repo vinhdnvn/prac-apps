@@ -958,3 +958,276 @@ body {
 .sim-log-empty  { color: #2a3e5a; }
 .sim-log-line   { color: var(--text-muted); padding: 1px 0; }
 .sim-log-latest { color: var(--text); }
+
+/* ── JWT Page ───────────────────────────────────────────────── */
+.jwt-page { max-width: 700px; }
+
+.jwt-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Section block */
+.jwt-section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.jwt-section:last-child { border-bottom: none; }
+
+.jwt-section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.jwt-section-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  opacity: 0.7;
+}
+
+.jwt-section-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #e8edf7;
+}
+
+.jwt-badge {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1a2a4a;
+  color: #60a5fa;
+  border: 1px solid #254c8e;
+}
+
+.jwt-section-body { display: flex; flex-direction: column; gap: 0; }
+
+/* ── Token Visual ── */
+.jwt-visual {
+  background: #040a16;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 4px 0 20px;
+}
+
+.jwt-token-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+}
+
+.jwt-token-part {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  transition: border-color 0.15s, background 0.15s, filter 0.15s;
+}
+
+.jwt-part--header  { color: #93c5fd; }
+.jwt-part--payload { color: #fde68a; }
+.jwt-part--sig     { color: #86efac; }
+
+.jwt-token-part:hover { filter: brightness(1.2); }
+
+.jwt-part--active.jwt-part--header  { background: #0d1e38; border-color: #254c8e; }
+.jwt-part--active.jwt-part--payload { background: #1e1708; border-color: #78590f; }
+.jwt-part--active.jwt-part--sig     { background: #081e14; border-color: #186844; }
+
+.jwt-dot { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; padding: 0 1px; }
+
+.jwt-labels-row {
+  display: flex;
+  gap: 0;
+  padding-top: 4px;
+  border-top: 1px dashed #1a2236;
+}
+
+.jwt-label-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.jwt-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.jwt-dot--header  { background: #93c5fd; }
+.jwt-dot--payload { background: #fde68a; }
+.jwt-dot--sig     { background: #86efac; }
+
+.jwt-label-text {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Decode panel */
+.jwt-decode-panel {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  border: 1px solid;
+  animation: fade-in 0.15s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.jwt-part--header-panel  { background: #060f22; border-color: #1e3a6e; }
+.jwt-part--payload-panel { background: #100d04; border-color: #5c430a; }
+.jwt-part--sig-panel     { background: #030e08; border-color: #10472a; }
+
+.jwt-decode-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.jwt-decode-badge {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.jwt-part--header.jwt-decode-badge  { background: #0d1e38; color: #93c5fd; border: 1px solid #254c8e; }
+.jwt-part--payload.jwt-decode-badge { background: #1e1708; color: #fde68a; border: 1px solid #78590f; }
+.jwt-part--sig.jwt-decode-badge     { background: #081e14; color: #86efac; border: 1px solid #186844; }
+
+.jwt-decode-desc { font-size: 12px; color: var(--text-muted); }
+
+.jwt-decode-pre {
+  background: #020509;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #c9d4e8;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.jwt-decode-warn {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #fbbf24;
+  background: #1e1206;
+  border: 1px solid #5c3e0a;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+/* ── Self-contained block ── */
+.jwt-selfcontained {
+  background: #0a1020;
+  border: 1px solid #1e2d45;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 16px 0 4px;
+}
+
+.jwt-sc-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.jwt-sc-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jwt-sc-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0d1625;
+  border: 1px solid #1e2d45;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.jwt-sc-icon { font-size: 14px; }
+
+.jwt-sc-text {
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.jwt-sc-plus  { font-size: 14px; color: var(--text-muted); }
+.jwt-sc-arrow { font-size: 18px; color: var(--accent); margin: 0 4px; }
+
+.jwt-sc-result {
+  font-size: 12px;
+  font-weight: 600;
+  color: #34d399;
+  background: #041410;
+  border: 1px solid #145030;
+  border-radius: 6px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+/* ── Phase tags (lifecycle) ── */
+.jwt-lifecycle-intro { margin-bottom: 16px; }
+
+.jwt-phase-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.jwt-phase-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.jwt-phase-tag--issue    { background: #0a1e38; color: #60a5fa; border-color: #1e4080; }
+.jwt-phase-tag--validate { background: #1a1208; color: #fbbf24; border-color: #705418; }
+.jwt-phase-tag--expire   { background: #1e0808; color: #f87171; border-color: #7a2020; }
+
+.jwt-phase-arrow { font-size: 16px; color: var(--text-muted); }
