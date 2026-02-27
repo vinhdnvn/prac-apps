@@ -6,23 +6,25 @@ const difficultyStyle = {
   hard:   { background: '#3b1219', color: '#f87171' },
 }
 
-export default function PracticeCard({ title, difficulty, tags = [], description, explanation, code, onClick }) {
+export default function PracticeCard({ title, difficulty, tags = [], description, explanation, code, onClick, isLink }) {
   const [expanded, setExpanded] = useState(false)
   const diff = difficultyStyle[difficulty] ?? difficultyStyle.easy
-  const hasContent = explanation || code
+  const hasContent = !isLink && (explanation || code)
 
   const handleClick = () => {
+    if (isLink) { onClick?.(); return }
     if (hasContent) setExpanded(p => !p)
     onClick?.()
   }
 
   return (
-    <div className={`practice-card-item ${expanded ? 'expanded' : ''}`} onClick={handleClick}>
+    <div className={`practice-card-item ${expanded ? 'expanded' : ''} ${isLink ? 'pcard-link' : ''}`} onClick={handleClick}>
       <div className="pcard-header">
         <span className="pcard-title">{title}</span>
         <div className="pcard-header-right">
           <span className="pcard-difficulty" style={diff}>{difficulty}</span>
-          {hasContent && <span className="pcard-toggle">{expanded ? '▲' : '▼'}</span>}
+          {isLink && <span className="pcard-toggle">→</span>}
+          {!isLink && hasContent && <span className="pcard-toggle">{expanded ? '▲' : '▼'}</span>}
         </div>
       </div>
 

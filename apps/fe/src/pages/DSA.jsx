@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import PracticeCard from '../components/PracticeCard'
 
+// ─── Problems data ────────────────────────────────────────────────────────────
+
 const problems = [
   {
     id: 1,
@@ -146,7 +148,17 @@ const problems = [
     return ans`,
     },
   },
+  {
+    id: 5,
+    title: 'Arrange Coins',
+    difficulty: 'easy',
+    tags: ['Math', 'Binary Search', 'Quadratic Formula'],
+    description: 'Cho n coins, xây staircase: row i cần đúng i coins. Row cuối có thể không hoàn thành. Return số row hoàn chỉnh.',
+    link: '/dsa/arrange-coins',
+  },
 ]
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function DSA() {
   const navigate = useNavigate()
@@ -168,6 +180,8 @@ export default function DSA() {
             description={p.description}
             explanation={p.explanation}
             code={p.code}
+            onClick={p.link ? () => navigate(p.link) : undefined}
+            isLink={!!p.link}
           />
         ))}
       </div>
