@@ -1234,6 +1234,288 @@ body {
 
 .jwt-phase-arrow { font-size: 16px; color: var(--text-muted); }
 
+/* ── Part 2: Chapter header ── */
+.jwt-chapter-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 32px 0 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1a2a40;
+}
+
+.jwt-chapter-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.jwt-chapter-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── Part 2: ArchDiagram ── */
+.jwt-arch-diagram {
+  margin: 16px 0;
+  border: 1px solid #1a2a40;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.jwt-arch-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #080e1c;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: var(--text);
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.jwt-arch-toggle:hover { background: #0d1625; }
+.jwt-arch-toggle--open { background: #0d1625; }
+
+.jwt-arch-toggle-icon {
+  font-size: 10px;
+  color: var(--accent);
+  width: 12px;
+}
+
+.jwt-arch-toggle-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.jwt-arch-pre {
+  background: #040a14;
+  border-top: 1px solid #1a2a40;
+  margin: 0;
+  padding: 14px 16px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #94a3b8;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  white-space: pre;
+}
+
+/* ── Part 2: RS256 vs HS256 ── */
+.jwt-key-compare {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 8px;
+  flex-wrap: wrap;
+}
+
+.jwt-key-box {
+  flex: 1;
+  min-width: 180px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid;
+}
+
+.jwt-key-box--sym  { background: #1a0a08; border-color: #5c2018; }
+.jwt-key-box--asym { background: #041410; border-color: #145030; }
+
+.jwt-key-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.jwt-key-box--sym  .jwt-key-label { color: #f87171; }
+.jwt-key-box--asym .jwt-key-label { color: #34d399; }
+
+.jwt-key-icon { font-size: 22px; margin-bottom: 6px; }
+
+.jwt-key-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.jwt-key-warn {
+  font-size: 11px;
+  font-weight: 600;
+  color: #f87171;
+}
+
+.jwt-key-safe {
+  font-size: 11px;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.jwt-key-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.jwt-key-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.jwt-key-tag--priv { background: #1a1208; color: #fbbf24; border-color: #705418; }
+.jwt-key-tag--pub  { background: #041410; border-color: #145030; color: #34d399; }
+
+.jwt-key-arrow {
+  font-size: 20px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Part 2: Phantom Token Summary ── */
+.jwt-phantom-summary {
+  background: #040a14;
+  border: 1px solid #1a2a40;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 20px 0 8px;
+}
+
+.jwt-phantom-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+}
+
+.jwt-phantom-actor {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 180px;
+}
+
+.jwt-phantom-carries {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.jwt-phantom-size {
+  font-size: 11px;
+  color: var(--accent);
+  margin-left: auto;
+}
+
+.jwt-phantom-divider {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 6px 0;
+  border-top: 1px dashed #1a2a40;
+  border-bottom: 1px dashed #1a2a40;
+  margin: 4px 0;
+}
+
+/* ── Part 2: Trade-off Grid ── */
+.jwt-tradeoff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+
+@media (max-width: 640px) {
+  .jwt-tradeoff-grid { grid-template-columns: 1fr; }
+}
+
+.jwt-tradeoff-card {
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid;
+}
+
+.jwt-tradeoff-card--session { background: #0a1020; border-color: #1e2d45; }
+.jwt-tradeoff-card--jwt     { background: #041410; border-color: #145030; }
+
+.jwt-tradeoff-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.jwt-tradeoff-icon { font-size: 16px; }
+
+.jwt-tradeoff-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.jwt-tradeoff-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.jwt-tradeoff-item {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.jwt-tradeoff-item::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--accent);
+}
+
+/* ── Part 2: Conclusion Box ── */
+.jwt-conclusion-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #0a1020;
+  border: 1px solid #1e3a6e;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 20px;
+}
+
+.jwt-conclusion-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.jwt-conclusion-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
 /* ── Arrange Coins Card ─────────────────────────────────────── */
 
 /* Staircase simulator */
