@@ -39,6 +39,13 @@ const practices = [
     path: '/jwt',
     status: 'wip',
   },
+  {
+    id: 'storage',
+    title: 'Browser Storage',
+    description: 'Cookies · Local Storage · Session Storage · Security',
+    path: '/storage',
+    status: 'wip',
+  },
 ]
 
 export default function Home() {
