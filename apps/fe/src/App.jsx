@@ -8,6 +8,7 @@ import StreamBuffer from './pages/StreamBuffer'
 import JWT from './pages/JWT'
 import Storage from './pages/Storage'
 import ArrangeCoins from './pages/ArrangeCoins'
+import Trading from './pages/Trading'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/nodejs/stream-buffer" element={<StreamBuffer />} />
         <Route path="/jwt" element={<JWT />} />
         <Route path="/storage" element={<Storage />} />
+        <Route path="/trading" element={<Trading />} />
       </Routes>
     </BrowserRouter>
   )

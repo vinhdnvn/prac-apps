@@ -46,6 +46,13 @@ const practices = [
     path: '/storage',
     status: 'wip',
   },
+  {
+    id:'trading-view',
+    title: 'Trading View',
+    description: 'Charting Library · WebSocket · Real-time Data',
+    path: '/trading',
+    status:'wip',
+  }
 ]
 
 export default function Home() {

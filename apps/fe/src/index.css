@@ -1872,6 +1872,212 @@ body {
   overflow-x: auto;
 }
 
+/* ── Trading / Lightweight Charts Page ────────────────────── */
+
+.tc-page {
+  max-width: 1200px;
+}
+
+.tc-section-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* Main combined chart */
+.tc-main {
+  background: #040a14;
+  border: 1px solid #1a2a40;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.tc-main-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #0d1625;
+  flex-wrap: wrap;
+}
+
+.tc-main-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.tc-main-sym {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 4px;
+}
+
+/* Chart grid */
+.tc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .tc-grid { grid-template-columns: 1fr; }
+}
+
+/* Chart block */
+.tc-block {
+  background: #040a14;
+  border: 1px solid #1a2a40;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tc-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #0d1625;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tc-block-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tc-block-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tc-block-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tc-block-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 8px 14px 6px;
+  margin: 0;
+  border-bottom: 1px solid #0d1625;
+}
+
+/* Chart wrapper — lightweight-charts renders inside here */
+.tc-chart-wrap {
+  width: 100%;
+  position: relative;
+}
+
+/* Badges */
+.tc-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #0d1625;
+  color: var(--text-muted);
+  border: 1px solid #1a2a40;
+  white-space: nowrap;
+}
+
+.tc-badge--ma20 { background: #1a1208; color: #f59e0b; border-color: #705418; }
+.tc-badge--ma50 { background: #1a0a38; color: #a78bfa; border-color: #4a2a8a; }
+
+/* Crosshair info row */
+.tc-crosshair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tc-ch {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.tc-ch b { color: var(--text); font-weight: 600; margin-left: 2px; }
+.tc-ch.o b { color: #94a3b8; }
+.tc-ch.h b { color: #26a69a; }
+.tc-ch.l b { color: #ef5350; }
+.tc-ch.c b { color: var(--text); }
+.tc-ch.v b { color: var(--accent); }
+.tc-ch.pos b { color: #26a69a; }
+.tc-ch.neg b { color: #ef5350; }
+
+/* Live button */
+.tc-live-btn {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1px solid #1a2a40;
+  background: #060c18;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.tc-live-btn:hover { background: #0d1625; color: var(--text); }
+
+.tc-live-btn.on {
+  background: #041410;
+  color: #34d399;
+  border-color: #145030;
+  animation: tc-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes tc-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* Code details */
+.tc-details {
+  border-top: 1px solid #0d1625;
+}
+
+.tc-summary {
+  font-size: 10px;
+  color: var(--text-muted);
+  padding: 7px 14px;
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
+
+.tc-summary:hover { color: var(--text); }
+
+.tc-pre {
+  background: #020608;
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 10.5px;
+  line-height: 1.65;
+  color: #64748b;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  overflow-x: auto;
+  border-top: 1px solid #0d1625;
+}
+
 /* ── Arrange Coins Card ─────────────────────────────────────── */
 
 /* Staircase simulator */
