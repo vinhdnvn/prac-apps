@@ -1,0 +1,36 @@
+name: Deploy FE
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/fe/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/apps/my-k8s-app
+            git pull origin main
+            cd apps/fe
+            docker build -t fe-app .
+            docker stop fe-app || true
+            docker rm fe-app || true
+            docker run -d --name fe-app --restart always -p 127.0.0.1:8081:80 fe-app
