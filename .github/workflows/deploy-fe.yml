@@ -23,6 +23,11 @@ jobs:
           oauth-secret: ${{ secrets.TAILSCALE_OAUTH_CLIENT_SECRET }}
           tags: tag:ci
 
+      - name: Debug network
+        run: |
+          tailscale status
+          ping -c 3 ${{ secrets.SSH_HOST }} || true
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v1
         with:
