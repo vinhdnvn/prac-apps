@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'apps/fe/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
