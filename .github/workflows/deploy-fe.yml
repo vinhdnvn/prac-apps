@@ -16,25 +16,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Tailscale
-        uses: tailscale/github-action@v2
-        with:
-          oauth-client-id: ${{ secrets.TAILSCALE_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TAILSCALE_OAUTH_CLIENT_SECRET }}
-          tags: tag:ci
-
-      - name: Debug network
+      - name: Setup SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          tailscale status
-          ping -c 3 ${{ secrets.SSH_HOST }} || true
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -v ssh.viktor-drunk.online >> ~/.ssh/known_hosts || true
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+        run: |
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@ssh.viktor-drunk.online << 'ENDSSH'
             cd ~/apps/my-k8s-app
             git pull origin main
             cd apps/fe
@@ -42,3 +35,4 @@ jobs:
             docker stop fe-app || true
             docker rm fe-app || true
             docker run -d --name fe-app --restart always -p 127.0.0.1:8081:80 fe-app
+          ENDSSH
