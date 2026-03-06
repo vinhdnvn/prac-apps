@@ -154,7 +154,7 @@ export default function Home() {
 
 
           <p className="home-label">practice lab</p>
-            <p className='home-subtitle'>ver 1.0.2</p>
+            <p className='home-subtitle'>ver 1.0.3</p>
           </div>
           <h1 className="home-title"> Playground</h1>
           <p className="home-subtitle">React · Hooks · Patterns · Interview Prep</p>
