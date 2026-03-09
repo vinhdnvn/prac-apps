@@ -156,6 +156,14 @@ const problems = [
     description: 'Cho n coins, xây staircase: row i cần đúng i coins. Row cuối có thể không hoàn thành. Return số row hoàn chỉnh.',
     link: '/dsa/arrange-coins',
   },
+  {
+    id: 6,
+    title: 'Find Smallest Letter Greater Than Target',
+    difficulty: 'easy',
+    tags: ['Array', 'Binary Search', 'Circular'],
+    description: 'Cho mảng letters đã sort (circular) và target. Tìm ký tự nhỏ nhất strictly lớn hơn target. Wrap around nếu không có.',
+    link: '/dsa/next-greatest-letter',
+  },
 ]
 
 // ─── Page ─────────────────────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import StreamBuffer from './pages/StreamBuffer'
 import JWT from './pages/JWT'
 import Storage from './pages/Storage'
 import ArrangeCoins from './pages/ArrangeCoins'
+import NextGreatestLetter from './pages/NextGreatestLetter'
 import Trading from './pages/Trading'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/dsa" element={<DSA />} />
         <Route path="/dsa/arrange-coins" element={<ArrangeCoins />} />
+        <Route path="/dsa/next-greatest-letter" element={<NextGreatestLetter />} />
         <Route path="/nestjs" element={<NestJS />} />
         <Route path="/nodejs" element={<NodeJS />} />
         <Route path="/nodejs/stream-buffer" element={<StreamBuffer />} />
