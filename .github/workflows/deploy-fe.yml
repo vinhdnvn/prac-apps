@@ -29,7 +29,7 @@ jobs:
           # Config SSH to use cloudflared as proxy
           cat >> ~/.ssh/config << 'EOF'
           Host ssh.viktorvn.id.vn
-            ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+            ProxyCommand /usr/local/bin/cloudflared access tcp --hostname %h
             StrictHostKeyChecking no
           EOF
 
