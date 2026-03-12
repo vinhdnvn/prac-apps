@@ -10,6 +10,7 @@ import Storage from './pages/Storage'
 import ArrangeCoins from './pages/ArrangeCoins'
 import NextGreatestLetter from './pages/NextGreatestLetter'
 import Trading from './pages/Trading'
+import SelfHosting from './pages/SelfHosting'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/jwt" element={<JWT />} />
         <Route path="/storage" element={<Storage />} />
         <Route path="/trading" element={<Trading />} />
+        <Route path="/self-hosting" element={<SelfHosting />} />
       </Routes>
     </BrowserRouter>
   )

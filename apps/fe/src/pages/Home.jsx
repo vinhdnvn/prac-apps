@@ -52,7 +52,14 @@ const practices = [
     description: 'Charting Library · WebSocket · Real-time Data',
     path: '/trading',
     status:'wip',
-  }
+  },
+  {
+    id: 'self-hosting',
+    title: 'Self Hosting',
+    description: 'Domain · DNS · Cloudflare Tunnel · CI/CD · Docker',
+    path: '/self-hosting',
+    status: 'done',
+  },
 ]
 
 export default function Home() {
