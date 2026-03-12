@@ -23,11 +23,7 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          # Install cloudflared for tunnel SSH
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
-          chmod +x /usr/local/bin/cloudflared
-          # Config SSH to use cloudflared as proxy
-          printf 'Host ssh.viktorvn.id.vn\n  ProxyCommand /usr/local/bin/cloudflared access tcp --hostname %%h\n  StrictHostKeyChecking no\n' >> ~/.ssh/config
+          ssh-keyscan -v ssh.viktorvn.id.vn >> ~/.ssh/known_hosts 2>/dev/null || true
 
       - name: Deploy to server
         run: |
