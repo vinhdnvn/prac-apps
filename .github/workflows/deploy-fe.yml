@@ -23,10 +23,19 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
+          # Install cloudflared for tunnel SSH
+          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          chmod +x /usr/local/bin/cloudflared
+          # Config SSH to use cloudflared as proxy
+          cat >> ~/.ssh/config << 'EOF'
+          Host ssh.viktorvn.id.vn
+            ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+            StrictHostKeyChecking no
+          EOF
 
       - name: Deploy to server
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@ssh.viktorvn.id.vn << 'ENDSSH'
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@ssh.viktorvn.id.vn << 'ENDSSH'
             cd ~/apps/my-k8s-app
             git pull origin main
             cd apps/fe
