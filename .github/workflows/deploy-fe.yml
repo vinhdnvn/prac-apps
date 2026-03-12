@@ -10,31 +10,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH and cloudflared
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy
         run: |
-          mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
-          chmod +x /usr/local/bin/cloudflared
-          printf 'Host ssh.viktorvn.id.vn\n  ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %%h --id ${{ secrets.CF_ACCESS_CLIENT_ID }} --secret ${{ secrets.CF_ACCESS_CLIENT_SECRET }}\n  StrictHostKeyChecking no\n' >> ~/.ssh/config
-
-      - name: Deploy to server
-        run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@ssh.viktorvn.id.vn << 'ENDSSH'
-            cd ~/apps/my-k8s-app
-            git pull origin main
-            cd apps/fe
-            docker build -t fe-app .
-            docker stop fe-app || true
-            docker rm fe-app || true
-            docker run -d --name fe-app --restart always -p 127.0.0.1:8081:80 fe-app
-          ENDSSH
+          cd apps/fe
+          docker build -t fe-app .
+          docker stop fe-app || true
+          docker rm fe-app || true
+          docker run -d --name fe-app --restart always -p 127.0.0.1:8081:80 fe-app
