@@ -27,11 +27,7 @@ jobs:
           curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
           chmod +x /usr/local/bin/cloudflared
           # Config SSH to use cloudflared as proxy
-          cat >> ~/.ssh/config << 'EOF'
-          Host ssh.viktorvn.id.vn
-            ProxyCommand /usr/local/bin/cloudflared access tcp --hostname %h
-            StrictHostKeyChecking no
-          EOF
+          printf 'Host ssh.viktorvn.id.vn\n  ProxyCommand /usr/local/bin/cloudflared access tcp --hostname %%h\n  StrictHostKeyChecking no\n' >> ~/.ssh/config
 
       - name: Deploy to server
         run: |
